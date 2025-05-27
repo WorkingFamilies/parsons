@@ -37,10 +37,10 @@ BIGQUERY_TYPE_MAP = {
     "datetime": "DATETIME",
     "date": "DATE",
     "time": "TIME",
-    "NoneType": "STRING",
-    "UUID": "STRING",
+    "nonetype": "STRING",
+    "uuid": "STRING",
     "timestamp": "TIMESTAMP",
-    "Decimal": "FLOAT",
+    "decimal": "FLOAT",
 }
 
 # Max number of rows that we query at a time, so we can avoid loading huge
@@ -1624,7 +1624,7 @@ class GoogleBigQuery(DatabaseConnector):
 
     @staticmethod
     def _bigquery_type(tp):
-        return BIGQUERY_TYPE_MAP[tp]
+        return BIGQUERY_TYPE_MAP[tp.lower()]
 
     def table(self, table_name):
         # Return a MySQL table object
