@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Coverage for parsons/etl/etl.py: 90%</title>
     <link rel="icon" sizes="32x32" href="favicon_32_cb_58284776.png">
-    <link rel="stylesheet" href="style_cb_8e611ae1.css" type="text/css">
+    <link rel="stylesheet" href="style_cb_81f8c14c.css" type="text/css">
     <script src="coverage_html_cb_6fb7b396.js" defer></script>
 </head>
 <body class="pyfile">
@@ -66,8 +66,8 @@
             <a id="indexLink" class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
             <a id="nextFileLink" class="nav" href="z_0dca1a03452b1ddd_table_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
-            <a class="nav" href="https://coverage.readthedocs.io/en/7.6.4">coverage.py v7.6.4</a>,
-            created at 2025-04-04 19:03 +0000
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.9.1">coverage.py v7.9.1</a>,
+            created at 2025-07-02 16:24 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"></button>
@@ -291,7 +291,7 @@
     <p class="pln"><span class="n"><a id="t207" href="#t207">207</a></span><span class="t">        <span class="str">"""</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t208" href="#t208">208</a></span><span class="t"><span class="str">        Transform values under one or more fields via arbitrary functions, method</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t209" href="#t209">209</a></span><span class="t"><span class="str">        invocations or dictionary translations. This leverages the petl ``convert()``</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t210" href="#t210">210</a></span><span class="t"><span class="str">        method. Example usage can be found `here &lt;https://petl.readthedocs.io/en/v0.24/transform.html#petl.convert>`_.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t210" href="#t210">210</a></span><span class="t"><span class="str">        method. Example usage can be found `here &lt;https://petl.readthedocs.io/latest/transform.html#petl.transform.conversions.convert>`_.</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t211" href="#t211">211</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t212" href="#t212">212</a></span><span class="t"><span class="str">        `Args:`</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t213" href="#t213">213</a></span><span class="t"><span class="str">            *column: str</span>&nbsp;</span><span class="r"></span></p>
@@ -980,7 +980,7 @@
     <p class="pln"><span class="n"><a id="t896" href="#t896">896</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t897" href="#t897">897</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">table</span> <span class="op">=</span> <span class="nam">petl</span><span class="op">.</span><span class="nam">cat</span><span class="op">(</span><span class="nam">self</span><span class="op">.</span><span class="nam">table</span><span class="op">,</span> <span class="op">*</span><span class="nam">petl_tables</span><span class="op">,</span> <span class="nam">missing</span><span class="op">=</span><span class="nam">missing</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t898" href="#t898">898</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t899" href="#t899">899</a></span><span class="t">    <span class="key">def</span> <span class="nam">chunk</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">rows</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t899" href="#t899">899</a></span><span class="t">    <span class="key">def</span> <span class="nam">chunk</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">rows</span><span class="op">:</span> <span class="nam">int</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t900" href="#t900">900</a></span><span class="t">        <span class="str">"""</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t901" href="#t901">901</a></span><span class="t"><span class="str">        Divides a Parsons table into smaller tables of a specified row count. If the table</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t902" href="#t902">902</a></span><span class="t"><span class="str">        cannot be divided evenly, then the final table will only include the remainder.</span>&nbsp;</span><span class="r"></span></p>
@@ -1385,8 +1385,8 @@
             <a class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
             <a class="nav" href="z_0dca1a03452b1ddd_table_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
-            <a class="nav" href="https://coverage.readthedocs.io/en/7.6.4">coverage.py v7.6.4</a>,
-            created at 2025-04-04 19:03 +0000
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.9.1">coverage.py v7.9.1</a>,
+            created at 2025-07-02 16:24 +0000
         </p>
     </div>
 </footer>
