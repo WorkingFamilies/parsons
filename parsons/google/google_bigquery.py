@@ -992,7 +992,9 @@ class GoogleBigQuery(DatabaseConnector):
 
         gcs_client = gcs_client or GoogleCloudStorage(app_creds=self.app_creds)
         temp_blob_name = temp_blob_name if temp_blob_name else f"{uuid.uuid4()}.{data_type}"
-        temp_blob_uri = gcs_client.upload_table(tbl, tmp_gcs_bucket, temp_blob_name)
+        temp_blob_uri = gcs_client.upload_table(
+            tbl, tmp_gcs_bucket, temp_blob_name, timeout=max_timeout
+        )
 
         # load CSV from Cloud Storage into BigQuery
         try:
