@@ -295,3 +295,7 @@ class dbtLoggerDatabase(dbtLogger, ABC):
                 if_exists="append",
                 **self.copy_kwargs,
             )
+
+        logger.info(
+            f"dbt run logs loaded to db. [runs={self.destination_table_runs}, nodes={self.destination_table_nodes}]"
+        )
