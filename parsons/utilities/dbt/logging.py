@@ -66,6 +66,9 @@ class dbtLogger(ABC):
 
 
 class dbtLoggerMarkdown(dbtLogger):
+    def __init__(self, log_extras: dict[str, str] | None = None) -> None:
+        self.log_extras = log_extras or {}
+
     def format_command_result(
         self,
         manifest: Manifest,
@@ -95,6 +98,9 @@ class dbtLoggerMarkdown(dbtLogger):
 
         log_message += f"\n*GB Processed*: {manifest.total_gb_processed:.2f}"
         log_message += f"\n*Slot hours*: {manifest.total_slot_hours:.2f}"
+
+        for key, value in self.log_extras.items():
+            log_message += f"\n*{key}*: {value}"
 
         # Errors
         if manifest.errors or manifest.fails:
