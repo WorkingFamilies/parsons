@@ -412,9 +412,13 @@ class CatalistMatch:
         unexpected_columns = [
             col for col in actual_table_columns if col not in expected_table_columns
         ]
+
+        # Catalist match requires (first and last name) OR email
         missing_required_columns = [
             col for col in required_columns if col not in actual_table_columns
         ]
+        if missing_required_columns and "email" in actual_table_columns:
+            missing_required_columns = []
 
         errors = {}
         if unexpected_columns:
