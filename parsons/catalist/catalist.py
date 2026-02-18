@@ -197,7 +197,7 @@ class CatalistMatch:
                   Optional. Any included values are mapped to every row of the input table.
         """
 
-        self.validate_table(table, template_id)
+        table = self.validate_table(table, template_id)
 
         # upload table to s3 temp location
         sftp_file_path = self.load_table_to_sftp(table, input_subfolder)
@@ -381,10 +381,10 @@ class CatalistMatch:
         result = Table.from_csv(str(filepath), delimiter="\t")
         return result
 
-    def validate_table(self, table: Table, template_id: str = "48827") -> None:
+    def validate_table(self, table: Table, template_id: str = "48827") -> Table:
         """Validate table structure and contents."""
         if template_id != "48827":
-            logger.warn(f"No validator implemented for template {template_id}.")
+            logger.warning(f"No validator implemented for template {template_id}.")
             return
 
         expected_table_columns = [
@@ -420,13 +420,13 @@ class CatalistMatch:
         if missing_required_columns and "email" in actual_table_columns:
             missing_required_columns = []
 
-        errors = {}
         if unexpected_columns:
-            errors["unexpected_columns"] = unexpected_columns
-        if missing_required_columns:
-            errors["missing_required_columns"] = missing_required_columns
+            logger.warning("Dropping unexpected columns: " + ", ".join(unexpected_columns))
+            table.remove_column(*unexpected_columns)
 
-        if errors:
-            raise ValueError("Input table does not have the right structure. %s", errors)
+        if missing_required_columns:
+            raise ValueError("Input table is missing required columns.")
         else:
             logger.info("Table structure validated.")
+
+        return table
