@@ -210,7 +210,10 @@ class DBSync:
 
         # Check for a mismatch in row counts; if dest_max_key is None, or destination is empty
         # and we don't have to worry about this check.
-        if dest_max is not None and dest_max > source_max:
+        # We round out the microseconds to avoid trivial differences
+        if dest_max is not None and dest_max.replace(microsecond=0) > source_max.replace(
+            microsecond=0
+        ):
             raise ValueError("Destination DB key greater than source DB key.")
 
         # Do not copied if row counts are equal.
